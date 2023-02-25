@@ -1,0 +1,20 @@
+.form-control {
+    color: #700000;
+}
+.navbar-height{
+height: 14% !important;
+}
+.topbar-left-icon-user{
+    max-width: 100% !important;
+    margin-left: 70% !important;
+}
+.grafic-ico i{
+    padding-bottom: -1px!important;
+}
+
+.efeito {
+    transition: all .15s ease-in-out!important;
+}
+.efeito:hover {
+    transform: scale(1.1)!important;
+}

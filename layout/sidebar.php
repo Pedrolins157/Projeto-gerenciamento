@@ -41,8 +41,12 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">O que deseja fazer ?</h6>
-            <a class="collapse-item" href="cadastrar-usuario.php">Cadastrar Usuário</a>
+            
+          <?php if($_SESSION["perfil"] === "adm"){?> <a class="collapse-item" href="cadastrar-usuario.php">Cadastrar Usuário</a><?php } ?>
+
             <a class="collapse-item" href="consultar-usuario.php">Consultar Usuários</a>
+
+        
         </div>
     </div>
 </li>

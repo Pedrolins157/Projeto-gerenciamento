@@ -1,4 +1,11 @@
-<?php include_once "autenticacao.php"?>
+<?php
+include_once "autenticacao.php";
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<?php
+include_once "layout/read.php";
+?>
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -102,3 +109,4 @@ include "layout/modal.php";
 
 
 </body>
+</html>

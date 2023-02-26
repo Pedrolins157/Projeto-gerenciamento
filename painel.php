@@ -36,7 +36,8 @@ include "layout/read.php";
                 <h1 class="h3 mb-4 text-gray-800 text-black-50">Seja bem-vindo <?php echo $_SESSION["nome"] ?> !</h1>
 
                <a href="#" class="forward"> <p class="text-gray-800">Acesse o menu para começar >></p></a>
-
+            
+             
             </div>
             <!-- /.container-fluid -->
             <div>

@@ -54,7 +54,7 @@ include_once "layout/read.php";
 
                         <!-- Dados do Form:Nome,E-mail,Cpf,Estado Civil -->
                         <form action="atualizar-cliente.php" autocomplete="off" class="w-50 mb-2" method="post">
-
+                        <input type="hidden" name="cod" value="<?php echo base64_encode($row['cod']); ?>">
                           Nome:  <input type="text" value="<?php echo $row['nome']?>" require Placeholder="escreva seu Nome aqui" name="nome" class="mb-2 form-control">
                           E-mail:  <input type="email" value="<?php echo $row['email']?>" require Placeholder="escreva seu E-mail" name="email" class="mb-2 form-control">
                           Cpf:  <input type="text" value="<?php echo $row['cpf']?>" require maxlength="11" Placeholder="escreva seu Cpf" name="cpf" class="mb-2 form-control">
@@ -66,7 +66,7 @@ include_once "layout/read.php";
                                 <option value="viuvo" <?php if($row["estadocivil"] =='viuva'){echo 'selected';}?>>Viúvo</option>
                                 <option value="divorciado" <?php if($row["estadocivil"] =='divorciado'){echo 'selected';}?>>Divorciado</option>
                             </select>
-                            <Button class="btn btn-primary w-50">Atualizar cadastro</Button>
+                            <Button id="btn-update" class="btn btn-primary w-50">Atualizar cadastro</Button>
                         </form>
 
                 </div>

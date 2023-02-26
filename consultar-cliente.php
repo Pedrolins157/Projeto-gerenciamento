@@ -38,7 +38,6 @@ include_once "layout/read.php";
                 <form action="consultar-cliente.php" class="form-inline" method="get" auto-complete="off">
                     <input type="text" class="form-control w-25 mr-4 " name="busca" Placeholder="Nome, email ou cpf">
                     <button class="form-control btn btn-secondary"><i class="fas fa-search mr-1"></i>Pesquisar</button>
-
                 </form>
                 <?php
                 //Resgatando o dado que veio pelo.
@@ -78,12 +77,12 @@ include_once "layout/read.php";
                                     <td><?php echo $row["email"] ?></td>
                                     <td><?php echo $row["cpf"] ?></td>
                                     <td><?php echo $row["estadocivil"] ?></td>
-                                    <td class="text-center"><a
-                                                href="editar-usuario.php?cod=<?php echo base64_encode($row['cod']) ?>"
-                                                class="href"><i class="fas fa-edit text-primary"></i></a></a></td>
-                                    <td class="text-center"><a href="#" class="href"><i
-                                                    class="fas fa-trash-alt text-danger"></i></a></td>
-
+                                    <td class="text-center" ><a
+                                                href="editar-cliente.php?cod=<?php echo base64_encode($row['cod']) ?>"
+                                                class="href" ><i class="fas fa-edit text-primary"></i></a></a></td>
+                                   <td class="text-center"><i
+                                                    class="fas fa-trash-alt text-danger"  id="btn-confirm-delete" ></i></td>
+                                           
                                 </tr>
 
                             <?php } ?>
@@ -92,8 +91,7 @@ include_once "layout/read.php";
                         <?php
                     } else {
                         echo "Nenhum cliente encontrado!";
-                    }
-
+                    } 
 
                 }
 
@@ -136,6 +134,30 @@ include "layout/modal.php";
 <script src="jquery.easing.min.js"></script>
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
+<script src="js/sweetalert.js"></script>
+
+<script>
+
+$("#btn-confirm-delete").click( function(){
+
+    Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    
+ 
+    
+  }
+})
+
+});
+</script>
 
 
 </body>

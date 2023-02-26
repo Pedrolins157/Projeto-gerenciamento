@@ -4,7 +4,7 @@ if(!empty($nome)){
 
 include_once "conexao.php";
 
-$stmt = $con->prepare("SELECT * FROM usuario INNER JOIN endereco ON usuario.cod = endereco.codUsu WHERE nome LIKE ? '%' ");
+$stmt = $con->prepare("SELECT * FROM usuario INNER JOIN endereco ON usuario.cod = endereco.cod WHERE nome LIKE ? '%' ");
 $stmt->bindParam(1, $nome);
 
 $stmt->execute();

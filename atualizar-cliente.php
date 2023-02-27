@@ -23,13 +23,7 @@ $stmt->bindParam(5, $cod);
 
 //4- Executar a instrução
 if($stmt->execute()){
-   ?>
-    <script> 
-    alert("Cliente atualizado com sucesso!");
-    window.location.href = "consultar-cliente.php";
-    </script>
-   <?php 
-
+    
 }else{
     $msn = "não foi possivel atualizar o cadastro, tente novamente!";
 }

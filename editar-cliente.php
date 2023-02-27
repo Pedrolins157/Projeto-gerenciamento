@@ -33,9 +33,7 @@ include_once "layout/read.php";
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h2 mb-4 text-gray-800">Alteração de Cliente</h1>
-
-                    <p class="h5 mb-4 text-gray-800">Preencha os dados abaixo!</p>
+                    <h1 class="h2 mb-4 text-gray-800">Dados cadastrado</h1>
                         
                         <?php 
                         
@@ -53,7 +51,7 @@ include_once "layout/read.php";
 
 
                         <!-- Dados do Form:Nome,E-mail,Cpf,Estado Civil -->
-                        <form action="atualizar-cliente.php" autocomplete="off" class="w-50 mb-2" method="post">
+                        <form id="form" action="atualizar-cliente.php" autocomplete="off" class="w-50 mb-2" method="post">
                         <input type="hidden" name="cod" value="<?php echo base64_encode($row['cod']); ?>">
                           Nome:  <input type="text" value="<?php echo $row['nome']?>" require Placeholder="escreva seu Nome aqui" name="nome" class="mb-2 form-control">
                           E-mail:  <input type="email" value="<?php echo $row['email']?>" require Placeholder="escreva seu E-mail" name="email" class="mb-2 form-control">
@@ -66,7 +64,7 @@ include_once "layout/read.php";
                                 <option value="viuvo" <?php if($row["estadocivil"] =='viuva'){echo 'selected';}?>>Viúvo</option>
                                 <option value="divorciado" <?php if($row["estadocivil"] =='divorciado'){echo 'selected';}?>>Divorciado</option>
                             </select>
-                            <Button id="btn-update" class="btn btn-primary w-50">Atualizar cadastro</Button>
+                            <input class="btn btn-secondary mx-auto atualizarCadastro row" name="atualizar-cadastro-cliente" value="Atualizar cadastro" id="atualizarCadastroCliente"/>
                         </form>
 
                 </div>
@@ -105,7 +103,47 @@ include_once "layout/read.php";
     <script src="jquery.easing.min.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-	
+    <script src="js/sweetalert.js"></script>
+	<script> 
+    
+    $("#atualizarCadastroCliente").click ( function(){
+        Swal.fire({
+  title: 'Confirma alteração no cadastro?',
+  text: "",
+  icon: 'warning',
+  iconColor:'#dc3545',
+  showCancelButton: true,
+  confirmButtonColor: '#dc3545',
+  cancelButtonColor: '#6c757d',
+  cancelButtonText:'Cancelar',
+  confirmButtonText: 'Confirmar'
+}).then((result) => {
+    if (result.isConfirmed) {
+        var formdata = new FormData($("form")[0]);
+var link = "http://localhost/Projeto-gerenciamento/atualizar-cliente.php";
+        $.ajax({
+            type: 'POST',
+            url: link,
+            data: formdata ,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+            Swal.fire({
+  icon: 'success',
+  title: 'Dados atualizados com sucesso!',
+  showConfirmButton: false,
+  timer: 1800
+  
+})
+
+            }
+        });
+    
+    }
+    })
+        });
+    
+    </script>
 	
     
 </body>

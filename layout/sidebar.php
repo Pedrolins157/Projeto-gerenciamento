@@ -6,7 +6,7 @@
         <i class="fa-solid fa-burger"></i>
     </div>
     <i class="fas fa-hamburger fa-3x"></i>
-    <div class="sidebar-brand-text mx-1 font-italic fa-1x text-capitalize">Brother Lanche</div>
+    <div class="sidebar-brand-text mx-1 font-italic fa-1x text-capitalize">Nome Logo!</div>
 </a>
 
 

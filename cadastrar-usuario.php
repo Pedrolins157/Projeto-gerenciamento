@@ -4,29 +4,7 @@ include_once "autenticacao.php";
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-
-    <title>Projeto Lanchonete</title>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Custom fonts for this template-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"
-        type="text/css">
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
-    <style>
-        label.error , #errologin{
-            font-size: 12px;
-            color: red;
-        }
-    </style>
-</head>
-
+<?php include_once "layout/read.php" ?>
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -34,7 +12,7 @@ include_once "autenticacao.php";
 
         <!-- Sidebar -->
         <?php
-        include "layout/sidebar.php";
+        include_once "layout/sidebar.php";
         ?>
         <!-- End of Sidebar -->
 

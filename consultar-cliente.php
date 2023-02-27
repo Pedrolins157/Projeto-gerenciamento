@@ -77,16 +77,9 @@ include_once "layout/read.php";
                                     <td><?php echo $row["email"] ?></td>
                                     <td><?php echo $row["cpf"] ?></td>
                                     <td><?php echo $row["estadocivil"] ?></td>
-                                    <td class="text-center" ><a
-                                                href="editar-cliente.php?cod=<?php echo base64_encode($row['cod']) ?>"
-                                                class="href" ><i class="fas fa-edit text-primary"></i></a></a></td>
-                                   <td class="text-center"><i
-                                                    class="fas fa-trash-alt text-danger"  id="btn-confirm-delete" ></i></td>
-                                           
-                                </tr>
-
+                                    <td class="text-center" ><a class="href" href="#" onclick="editarCliente('<?php echo base64_encode($row['cod']) ?>')" ><i class="fas fa-edit text-primary"></i></a></a></td>
+                                                <td class="text-center"><a href="#" onclick="confirmarExclusao('<?php echo base64_encode($row['cod'])?>') "><i class="fas fa-trash-alt text-danger"></i></a></td>
                             <?php } ?>
-
                         </table>
                         <?php
                     } else {
@@ -137,28 +130,33 @@ include "layout/modal.php";
 <script src="js/sweetalert.js"></script>
 
 <script>
-
-$("#btn-confirm-delete").click( function(){
-
-    Swal.fire({
-  title: 'Are you sure?',
-  text: "You won't be able to revert this!",
+                //função editar cliente
+                function editarCliente(cod){
+                  
+                    location.href = "editar-cliente.php?cod="+cod;
+                }
+                //função excluir cliente
+        function confirmarExclusao(cod) {
+            Swal.fire({
+  title: 'Deseja realmente deletar cliente?',
+  text: "",
   icon: 'warning',
+  iconColor:'#dc3545',
   showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, delete it!'
+  confirmButtonColor: '#dc3545',
+  cancelButtonColor: '#6c757d',
+  cancelButtonText:'Cancelar',
+  confirmButtonText: 'Confirmar'
 }).then((result) => {
-  if (result.isConfirmed) {
-    
- 
-    
-  }
-})
+    if (result.isConfirmed) {
+      
+        location.href = "deletar-cliente.php?cod="+cod;
 
+}
 });
-</script>
-
-
+        }
+    </script>
 </body>
 </html>
+
+
